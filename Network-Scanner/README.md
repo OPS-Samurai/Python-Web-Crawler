@@ -16,9 +16,9 @@
 
 # Um die Skripte auszuführen, werden folgende Bibliotheken benötigt:
 
-# ```bash
+```bash
 
 pip install socket requests
 ```
-===
+
 
