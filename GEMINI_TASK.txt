@@ -1,0 +1,112 @@
+﻿Du bist ein Senior Technical Writer. Erstelle eine professionelle README.md (Markdown) fÃ¼r 'Python-Tools'.
+Sprache: Deutsch.
+
+ANFORDERUNGEN:
+1. Titel & Zusammenfassung
+2. Installationsanleitung (AbhÃ¤ngigkeiten erkennen)
+3. Tabelle der Skripte (Dateiname | Funktion | Beschreibung)
+4. Ordnerstruktur
+
+KONTEXT:
+STRUKTUR:\Automation-Helpers
+\Network-Scanner
+\Web-Crawler
+\GEMINI_TASK.txt
+\README.md
+\Automation-Helpers\GitExporttoyaml.py
+\Automation-Helpers\README.md
+\Network-Scanner\netscan.py
+\Network-Scanner\README.md
+\Web-Crawler\ArticleFetcher.py
+\Web-Crawler\CrawledArticle.py
+\Web-Crawler\crawler.py
+\Web-Crawler\README.md
+\Web-Crawler\requirements.txt
+
+DATEI-INHALTE:
+
+--- DATEI: \Automation-Helpers\GitExporttoyaml.py ---
+import os
+import yaml
+import subprocess
+from datetime import datetime
+
+def get_git_info(path):
+    try:
+        branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=path).decode().strip()
+        remote = subprocess.check_output(["git", "remote", "get-url", "origin"], cwd=path).decode().strip()
+        return {"branch": branch, "remote": remote}
+    except:
+        return {"branch": "unknown", "remote": "none"}
+
+# System-Kontext definieren
+base_path = "C:\\Git"
+
+--- DATEI: \Network-Scanner\netscan.py ---
+#!/usr/bin/env python3
+import socket
+import sys
+from datetime import datetime
+
+# @doc: Einfacher TCP Port-Scanner (Python)
+# Verwendung: netscan.py <IP>
+
+def scan_target(target):
+    # Hostnamen auflÃ¶sen
+    try:
+        target_ip = socket.gethostbyname(target)
+    except socket.gaierror:
+        print(f"âŒ Fehler: Hostname '{target}' konnte nicht aufgelÃ¶st werden.")
+        return
+
+--- DATEI: \Web-Crawler\ArticleFetcher.py ---
+import time
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from CrawledArticle import CrawledArticle
+from datetime import datetime
+
+class ArticleFetcher:
+    def log_error(self, message):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open("crawler_errors.log", "a", encoding="utf-8") as f:
+            f.write(f"[{timestamp}] {message}\n")
+
+    def fetch(self, url, selectors):
+        page_count = 0
+
+--- DATEI: \Web-Crawler\CrawledArticle.py ---
+from dataclasses import dataclass
+
+@dataclass
+class CrawledArticle:
+    title: str
+    brand: str
+    price: str
+    image: str
+    url: str
+
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "brand": self.brand,
+            "price": self.price,
+
+--- DATEI: \Web-Crawler\crawler.py ---
+# @doc: Interaktiver Web-Crawler zum Extrahieren von Artikeln von Websites.
+import os
+import json
+import webbrowser
+import winsound
+from datetime import datetime
+from ArticleFetcher import ArticleFetcher
+
+def generate_html_report(results, keyword):
+    filename = f"Live_Report_{keyword if keyword else 'All'}.html"
+    html = f"""
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+
