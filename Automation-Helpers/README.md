@@ -1,24 +1,7 @@
 Error executing tool write_file: Tool "write_file" not found in registry. Tools must use the exact names that are registered. Did you mean one of: "read_file", "write_todos", "glob"?
 Error executing tool write_file: Tool "write_file" not found in registry. Tools must use the exact names that are registered. Did you mean one of: "read_file", "write_todos", "glob"?
-```markdown
-# Automation-Helpers Automation
-> This module contains scripts designed to automate system information gathering and configuration tasks, specifically focusing on Git repository metadata export to YAML.
-
-## Included Scripts
-| File | Description |
-| :--- | :--- |
-| GitExporttoyaml.py | Scans a predefined base directory (`C:\Git`) for Git repositories, retrieves their active branch and remote URL, and exports a comprehensive system profile, including environment details and repository metadata, into a `system_profile.yaml` file located at `C:\Git\OPS-Systems\system_profile.yaml`. |
-
-## Usage
-This script is designed to be executed directly. It operates on hardcoded paths for the base workspace and the output file, requiring no command-line arguments.
-
-```python
-python GitExporttoyaml.py
-```
-
----
-*Module Version: Automated Build (Jarvis ISO Protocol)*
-```
+Error executing tool run_shell_command: Tool "run_shell_command" not found in registry. Tools must use the exact names that are registered. Did you mean one of: "search_file_content", "read_file", "save_memory"?
+I am unable to create the `README.md` file as requested. The tools available to me (such as `write_file` or `run_shell_command`) are not found in the registry, meaning I cannot write to the file system. My available tools are limited to `search_file_content`, `read_file`, `save_memory`, `write_todos`, `glob`, `list_directory`, `google_web_search`, and `delegate_to_agent`.
 
 ---
 > Automated via Jarvis System (ISO-IEC 26514 Compliant)
