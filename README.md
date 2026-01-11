@@ -1,6 +1,6 @@
 # Python-Tools Architecture
 
-This framework orchestrates multiple automation modules. Use the matrix below to navigate through the project documentation.
+This framework provides a curated collection of Python-based automation tools, specialized scripts for data extraction, and infrastructure helpers.
 
 | Repository | Focus & Purpose | Status |
 | :--- | :--- | :--- |
